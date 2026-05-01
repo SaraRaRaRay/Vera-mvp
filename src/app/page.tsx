@@ -9,6 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { MilestoneToggle } from "@/components/milestone-toggle";
+import { ProgressBar } from "@/components/progress-bar";
 import { milestones } from "@/lib/milestones";
 
 export default function Home() {
@@ -27,6 +29,8 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-7xl px-6 py-8 md:py-10">
+        <ProgressBar total={milestones.length} />
+
         <div className="mb-8">
           <h2 className="text-2xl font-semibold tracking-tight">First Home Buyer Milestones</h2>
           <p className="mt-2 text-muted-foreground">
@@ -44,11 +48,9 @@ export default function Home() {
               <CardContent className="flex-1">
                 <p className="text-sm text-muted-foreground">{milestone.shortDescription}</p>
               </CardContent>
-              <CardFooter>
-                <Link
-                  href={`/milestones/${milestone.id}`}
-                  className={buttonVariants({ variant: "outline" })}
-                >
+              <CardFooter className="flex items-center justify-between gap-3">
+                <MilestoneToggle milestoneId={milestone.id} />
+                <Link href={`/milestones/${milestone.id}`} className={buttonVariants({ variant: "outline" })}>
                   Learn more
                 </Link>
               </CardFooter>

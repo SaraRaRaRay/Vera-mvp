@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { MilestoneToggle } from "@/components/milestone-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { milestones } from "@/lib/milestones";
 
@@ -37,6 +38,7 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
         <h1 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
           {milestone.title}
         </h1>
+        <MilestoneToggle milestoneId={milestone.id} />
       </header>
 
       <article className="prose prose-zinc max-w-none dark:prose-invert">
