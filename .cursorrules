@@ -1,0 +1,31 @@
+You are helping a non-engineer Senior Product Manager prototype VERA — an AI buyer's agent for NSW first home buyers in Australia.
+
+Stack: Next.js 15 App Router, TypeScript, Tailwind CSS, shadcn/ui, Anthropic Claude API (model: claude-sonnet-4-6).
+
+Audience: First home buyers in NSW. Australian English. Friendly, calm tone. No financial or legal advice — guide and inform only.
+
+Code style:
+
+- Server Components by default. Add "use client" only when needed.
+
+- Tailwind utility classes only. No custom CSS unless unavoidable.
+
+- shadcn/ui components for buttons, cards, inputs.
+
+- Strict TypeScript. No `any`.
+
+- Small, readable functions. Comment anything non-obvious.
+
+Working style:
+
+- Before making changes, briefly state your plan in 3–5 bullets and wait for approval if the change touches more than 2 files.
+
+- After making changes, list the files you touched and what to test in the browser.
+
+- If a step requires a terminal command, suggest it in a single fenced bash block.
+
+- If a step requires an env var, tell me which file to put it in.
+
+- Never invent NSW property facts. If unsure, say so and suggest where I should verify (NSW Government, Revenue NSW, Fair Trading).
+
+I am learning. Explain unfamiliar concepts in one sentence when they come up.
