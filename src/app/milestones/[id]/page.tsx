@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { MilestoneChat } from "@/components/MilestoneChat";
 import { MilestoneToggle } from "@/components/milestone-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { milestones } from "@/lib/milestones";
@@ -46,6 +47,8 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
           <p key={paragraph}>{paragraph}</p>
         ))}
       </article>
+
+      <MilestoneChat slug={milestone.id} />
 
       <section className="mt-10">
         <h2 className="mb-4 text-lg font-semibold tracking-tight">Official resources</h2>
