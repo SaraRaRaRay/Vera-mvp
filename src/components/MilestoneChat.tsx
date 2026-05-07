@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 import { askMilestoneQuestion, type ChatMessage } from "@/app/actions/ask";
 import { Button } from "@/components/ui/button";
@@ -70,9 +71,30 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
                 ) : (
                   <div className="size-8" aria-hidden="true" />
                 )}
-                <p className="max-w-[85%] rounded-full bg-peach px-4 py-2 text-sm leading-relaxed text-ink">
-                  {message.content}
-                </p>
+                <div className="max-w-[85%] rounded-3xl bg-peach px-4 py-2 text-sm leading-relaxed text-ink">
+                  <ReactMarkdown
+                    components={{
+                      strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                      em: ({ children }) => <em className="italic">{children}</em>,
+                      ul: ({ children }) => <ul className="mb-2 list-disc space-y-1 pl-5">{children}</ul>,
+                      ol: ({ children }) => <ol className="mb-2 list-decimal space-y-1 pl-5">{children}</ol>,
+                      li: ({ children }) => <li className="mb-1">{children}</li>,
+                      a: ({ href, children }) => (
+                        <a
+                          href={href}
+                          className="text-purple underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {children}
+                        </a>
+                      ),
+                      p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                    }}
+                  >
+                    {message.content}
+                  </ReactMarkdown>
+                </div>
               </div>
             ) : (
               <p className="max-w-[85%] rounded-full bg-pink px-4 py-2 text-sm leading-relaxed text-ink">

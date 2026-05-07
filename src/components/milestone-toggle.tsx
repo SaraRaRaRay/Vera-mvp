@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "vera_progress";
-const PROGRESS_EVENT = "vera-progress-updated";
+export const STORAGE_KEY = "vera_progress";
+export const PROGRESS_EVENT = "vera-progress-updated";
 
 type ProgressState = Record<string, boolean>;
 

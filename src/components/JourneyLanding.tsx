@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-import { MilestoneToggle } from "@/components/milestone-toggle";
+import { MilestoneToggle, PROGRESS_EVENT, STORAGE_KEY } from "@/components/milestone-toggle";
 import { milestones } from "@/lib/milestones";
 
 const veraIntroByMilestone: Record<string, string> = {
@@ -34,10 +34,48 @@ export function JourneyLanding() {
   const [activeId, setActiveId] = useState(milestones[0]?.id ?? "");
   const [bubbleText, setBubbleText] = useState(veraIntroByMilestone[milestones[0].id]);
   const [bubbleVisible, setBubbleVisible] = useState(true);
+  const [completedCount, setCompletedCount] = useState(0);
   const intro = useMemo(
     () => veraIntroByMilestone[activeId] ?? veraIntroByMilestone[milestones[0].id],
     [activeId],
   );
+  const totalMilestones = milestones.length;
+  const progressPercent = totalMilestones > 0 ? (completedCount / totalMilestones) * 100 : 0;
+
+  useEffect(() => {
+    function readCompletedCount() {
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          setCompletedCount(0);
+          return;
+        }
+
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") {
+          setCompletedCount(0);
+          return;
+        }
+
+        const count = milestones.reduce(
+          (accumulator, milestone) => accumulator + (Boolean((parsed as Record<string, boolean>)[milestone.id]) ? 1 : 0),
+          0,
+        );
+        setCompletedCount(count);
+      } catch {
+        setCompletedCount(0);
+      }
+    }
+
+    readCompletedCount();
+    window.addEventListener(PROGRESS_EVENT, readCompletedCount);
+    window.addEventListener("storage", readCompletedCount);
+
+    return () => {
+      window.removeEventListener(PROGRESS_EVENT, readCompletedCount);
+      window.removeEventListener("storage", readCompletedCount);
+    };
+  }, []);
 
   useEffect(() => {
     setBubbleVisible(false);
@@ -116,6 +154,16 @@ export function JourneyLanding() {
                   <p className="truncate md:whitespace-normal">{bubbleText}</p>
                   <span className="absolute -left-2 top-4 hidden size-4 rotate-45 bg-peach md:block" />
                 </div>
+                <div className="mt-3 rounded-2xl border border-grey/20 bg-white/80 px-4 py-3 shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
+                  <p className="text-sm text-ink">{completedCount} of 10 milestones complete</p>
+                  <div className="mt-2 h-2 w-full rounded-full bg-grey/30">
+                    <div
+                      className="h-full rounded-full bg-purple transition-all duration-300"
+                      style={{ width: `${progressPercent}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -154,30 +202,38 @@ export function JourneyLanding() {
                     Open VERA&apos;s guide &rarr;
                   </Link>
                 </div>
-                <div className="mt-12 flex items-center gap-4">
-                  <span className="h-px flex-1 bg-grey/30" />
+                <div className="mt-14 flex items-center justify-center">
                   <svg
                     aria-hidden="true"
-                    viewBox="0 0 64 64"
-                    className="h-7 w-7 text-purple/35"
+                    viewBox="0 0 96 44"
+                    className="h-8 w-20 text-purple/35"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M34 52C34 36 39 25 51 16M31 51C31 38 26 28 14 21"
+                      d="M48 38V8"
                       stroke="currentColor"
-                      strokeWidth="2.5"
+                      strokeWidth="2.2"
                       strokeLinecap="round"
                     />
                     <path
-                      d="M47 15C42 13 37 14 34 19C39 21 43 20 47 15ZM17 20C22 18 27 19 30 24C25 26 21 25 17 20Z"
+                      d="M49 20C56 18 62 20 66 26C59 29 53 27 49 20Z"
+                      fill="currentColor"
+                      fillOpacity="0.2"
+                    />
+                    <path
+                      d="M47 26C40 24 34 26 30 32C37 35 43 33 47 26Z"
+                      fill="currentColor"
+                      fillOpacity="0.2"
+                    />
+                    <path
+                      d="M49 20C56 18 62 20 66 26M47 26C40 24 34 26 30 32"
                       stroke="currentColor"
-                      strokeWidth="2.5"
+                      strokeWidth="2.2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="h-px flex-1 bg-grey/30" />
                 </div>
               </article>
             );

@@ -26,15 +26,15 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-10 text-ink md:py-14">
-      <nav className="mb-8 text-sm text-grey" aria-label="Breadcrumb">
+      <nav className="mb-8 flex items-center gap-3 text-sm text-grey" aria-label="Breadcrumb">
         <Link
           href="/"
-          className="transition hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30"
+          className="transition hover:text-purple hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30"
         >
-          Home
+          &larr; Back to journey
         </Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">Milestone {milestone.order}</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>Step {milestoneIndex + 1} of 10</span>
       </nav>
 
       <header className="mb-8 rounded-2xl border border-grey/20 bg-white/70 p-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] md:p-8">
