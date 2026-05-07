@@ -25,33 +25,41 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
   const guidanceParagraphs = milestone.guidance.split("\n\n");
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-10 md:py-12">
-      <nav className="mb-8 text-sm text-muted-foreground" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-foreground hover:underline">
+    <main className="mx-auto w-full max-w-4xl px-6 py-10 text-ink md:py-14">
+      <nav className="mb-8 text-sm text-grey" aria-label="Breadcrumb">
+        <Link
+          href="/"
+          className="transition hover:text-ink hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30"
+        >
           Home
         </Link>
         <span className="mx-2">/</span>
-        <span className="text-foreground">Milestone {milestone.order}</span>
+        <span className="text-ink">Milestone {milestone.order}</span>
       </nav>
 
-      <header className="mb-8 space-y-3">
-        <p className="text-sm font-medium text-muted-foreground">Milestone {milestone.order}</p>
-        <h1 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
+      <header className="mb-8 rounded-2xl border border-grey/20 bg-white/70 p-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] md:p-8">
+        <p className="text-sm font-medium text-grey">Milestone {milestone.order}</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-balance text-ink md:text-5xl">
           {milestone.title}
         </h1>
-        <MilestoneToggle milestoneId={milestone.id} />
+        <p className="mt-3 max-w-3xl text-grey">{milestone.shortDescription}</p>
+        <div className="mt-5">
+          <MilestoneToggle milestoneId={milestone.id} />
+        </div>
       </header>
 
-      <article className="prose prose-zinc max-w-none dark:prose-invert">
+      <article className="space-y-5 rounded-2xl border border-grey/20 bg-white/75 p-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] md:p-8">
         {guidanceParagraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={paragraph} className="text-base leading-relaxed text-ink/90 md:text-lg">
+            {paragraph}
+          </p>
         ))}
       </article>
 
       <MilestoneChat slug={milestone.id} />
 
-      <section className="mt-10">
-        <h2 className="mb-4 text-lg font-semibold tracking-tight">Official resources</h2>
+      <section className="mt-10 rounded-2xl border border-grey/20 bg-white/75 p-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] md:p-8">
+        <h2 className="mb-4 text-xl font-semibold tracking-tight text-ink">Official resources</h2>
         <div className="flex flex-wrap gap-3">
           {milestone.links.map((link) => (
             <a
@@ -59,7 +67,11 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={buttonVariants({ variant: "outline" })}
+              className={buttonVariants({
+                variant: "outline",
+                className:
+                  "rounded-full border-grey/35 bg-cream text-ink hover:bg-pink focus-visible:ring-purple/30",
+              })}
             >
               {link.label}
             </a>
@@ -68,13 +80,17 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
       </section>
 
       <nav
-        className="mt-12 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between"
+        className="mt-12 flex flex-col gap-3 border-t border-grey/30 pt-6 sm:flex-row sm:items-center sm:justify-between"
         aria-label="Milestone navigation"
       >
         {previousMilestone ? (
           <Link
             href={`/milestones/${previousMilestone.id}`}
-            className={buttonVariants({ variant: "outline" })}
+            className={buttonVariants({
+              variant: "outline",
+              className:
+                "rounded-full border-grey/35 bg-cream px-5 text-ink hover:bg-pink focus-visible:ring-purple/30",
+            })}
           >
             Previous
           </Link>
@@ -83,7 +99,12 @@ export default async function MilestoneDetailPage({ params }: MilestoneDetailPag
         )}
 
         {nextMilestone ? (
-          <Link href={`/milestones/${nextMilestone.id}`} className={buttonVariants()}>
+          <Link
+            href={`/milestones/${nextMilestone.id}`}
+            className={buttonVariants({
+              className: "rounded-full bg-purple px-6 text-white hover:bg-purple/90 focus-visible:ring-purple/30",
+            })}
+          >
             Next
           </Link>
         ) : (

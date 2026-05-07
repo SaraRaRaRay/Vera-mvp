@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 import { askMilestoneQuestion, type ChatMessage } from "@/app/actions/ask";
@@ -40,9 +41,12 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
   }
 
   return (
-    <section className="mt-10 rounded-xl border border-stone-200 bg-white shadow-sm">
-      <div className="border-b border-stone-200 px-4 py-3 sm:px-5">
-        <h2 className="text-base font-semibold text-stone-900">Ask VERA</h2>
+    <section className="mt-10 rounded-2xl border border-grey/20 bg-white/75 shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
+      <div className="flex items-center gap-3 border-b border-grey/20 px-4 py-3 sm:px-5">
+        <div className="relative size-12 overflow-hidden rounded-full ring-2 ring-white/80">
+          <Image src="/vera-portrait.png" alt="VERA avatar" fill className="object-cover" sizes="48px" />
+        </div>
+        <h2 className="text-base font-semibold text-ink">Ask VERA</h2>
       </div>
 
       <div className="max-h-96 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
@@ -51,23 +55,38 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
             key={`${message.role}-${index}`}
             className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
           >
-            <p
-              className={`max-w-[85%] rounded-lg px-3 py-2 text-sm leading-relaxed ${
-                message.role === "user"
-                  ? "bg-emerald-100 text-emerald-900"
-                  : "bg-stone-100 text-stone-900"
-              }`}
-            >
-              {message.content}
-            </p>
+            {message.role === "assistant" ? (
+              <div className="flex items-end gap-2">
+                {index === 0 || messages[index - 1]?.role === "user" ? (
+                  <div className="relative mb-1 size-8 overflow-hidden rounded-full">
+                    <Image
+                      src="/vera-portrait.png"
+                      alt="VERA"
+                      fill
+                      className="object-cover"
+                      sizes="32px"
+                    />
+                  </div>
+                ) : (
+                  <div className="size-8" aria-hidden="true" />
+                )}
+                <p className="max-w-[85%] rounded-full bg-peach px-4 py-2 text-sm leading-relaxed text-ink">
+                  {message.content}
+                </p>
+              </div>
+            ) : (
+              <p className="max-w-[85%] rounded-full bg-pink px-4 py-2 text-sm leading-relaxed text-ink">
+                {message.content}
+              </p>
+            )}
           </div>
         ))}
-        {loading ? <p className="text-sm text-stone-500">VERA is thinking...</p> : null}
+        {loading ? <p className="text-sm text-grey">VERA is thinking...</p> : null}
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="flex gap-2 border-t border-stone-200 px-4 py-3 sm:px-5"
+        className="flex gap-2 border-t border-grey/20 px-4 py-3 sm:px-5"
         aria-label="Ask VERA about this milestone"
       >
         <Input
@@ -75,8 +94,13 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
           onChange={(event) => setInputValue(event.target.value)}
           placeholder="Ask a question about this step..."
           disabled={loading}
+          className="h-11 rounded-full border-grey/35 bg-cream px-4 text-ink focus-visible:ring-purple/30"
         />
-        <Button type="submit" disabled={loading || inputValue.trim().length === 0}>
+        <Button
+          type="submit"
+          disabled={loading || inputValue.trim().length === 0}
+          className="h-11 rounded-full bg-purple px-5 text-white hover:bg-purple/90 focus-visible:ring-purple/30"
+        >
           Send
         </Button>
       </form>

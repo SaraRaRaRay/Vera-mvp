@@ -52,14 +52,14 @@ export function MilestoneToggle({ milestoneId }: MilestoneToggleProps) {
   };
 
   return (
-    <label className="inline-flex cursor-pointer items-center gap-2 text-sm text-muted-foreground">
+    <label className="inline-flex cursor-pointer items-center gap-3 rounded-full border border-grey/35 bg-white/75 px-4 py-2 text-sm text-grey shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
       <input
         type="checkbox"
-        className="size-4 rounded border-border accent-primary"
+        className="size-4 rounded border-grey/40 accent-purple focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30"
         checked={mounted ? done : false}
         onChange={(event) => onToggle(event.target.checked)}
       />
-      <span>{done ? "Done" : "Mark as done"}</span>
+      <span className={done ? "font-medium text-ink" : "text-grey"}>{done ? "Done" : "Mark complete"}</span>
     </label>
   );
 }
