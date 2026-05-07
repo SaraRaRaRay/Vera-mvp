@@ -130,7 +130,7 @@ export function JourneyLanding() {
   }, []);
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 md:py-10">
+    <main className="mx-auto w-full max-w-7xl overflow-x-hidden px-4 py-8 sm:px-6 md:py-10">
       <div className="grid gap-8 md:grid-cols-[340px_minmax(0,1fr)] md:gap-10">
         <aside className="md:sticky md:top-20 md:self-start">
           <div className="sticky top-3 z-10 rounded-2xl bg-cream/95 p-3 shadow-[0_8px_30px_rgba(124,58,237,0.08)] backdrop-blur md:static md:bg-transparent md:p-0 md:shadow-none">
@@ -147,11 +147,11 @@ export function JourneyLanding() {
               </div>
               <div className="min-w-0">
                 <div
-                  className={`relative rounded-2xl bg-peach px-4 py-3 text-sm text-ink shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-opacity duration-200 md:-rotate-1 md:px-5 md:py-4 md:text-base ${
+                  className={`relative w-full max-w-full rounded-2xl bg-peach px-4 py-3 text-sm text-ink shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-opacity duration-200 md:-rotate-1 md:px-5 md:py-4 md:text-base ${
                     bubbleVisible ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <p className="truncate md:whitespace-normal">{bubbleText}</p>
+                  <p className="break-words whitespace-normal">{bubbleText}</p>
                   <span className="absolute -left-2 top-4 hidden size-4 rotate-45 bg-peach md:block" />
                 </div>
                 <div className="mt-3 rounded-2xl border border-grey/20 bg-white/80 px-4 py-3 shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
@@ -176,7 +176,7 @@ export function JourneyLanding() {
               <article
                 key={milestone.id}
                 id={`milestone-${milestone.id}`}
-                className={`min-h-[80vh] rounded-2xl border px-6 py-8 shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-colors md:px-10 md:py-12 ${
+                className={`rounded-2xl border px-5 pt-10 pb-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-colors md:min-h-[80vh] md:px-8 md:pt-12 md:pb-16 ${
                   isActive ? "border-purple/25 bg-pink/40" : "border-grey/20 bg-white/70"
                 }`}
               >
@@ -187,8 +187,10 @@ export function JourneyLanding() {
                 >
                   {String(milestone.order).padStart(2, "0")}
                 </p>
-                <h2 className="mt-5 text-3xl font-bold text-ink md:text-4xl">{milestone.title}</h2>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-grey md:text-lg">
+                <h2 className="mt-5 break-words text-3xl font-bold text-ink md:text-4xl">
+                  {milestone.title}
+                </h2>
+                <p className="mt-4 break-words max-w-2xl text-base leading-relaxed text-grey md:text-lg">
                   {milestone.shortDescription}
                 </p>
                 <div className="mt-6">
@@ -197,12 +199,12 @@ export function JourneyLanding() {
                 <div className="mt-7">
                   <Link
                     href={`/milestones/${milestone.id}`}
-                    className="inline-flex items-center rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition hover:bg-purple/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30"
+                    className="inline-flex items-center rounded-full bg-purple px-5 py-3 text-sm font-semibold text-white transition hover:bg-purple/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30 md:px-6"
                   >
                     Open VERA&apos;s guide &rarr;
                   </Link>
                 </div>
-                <div className="mt-14 flex items-center justify-center">
+                <div className="hidden md:mt-14 md:flex md:items-center md:justify-center">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 96 44"
