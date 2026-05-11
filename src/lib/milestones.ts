@@ -44,7 +44,7 @@ export const milestones: Milestone[] = [
       },
       {
         label: "MFAA: Find a mortgage broker",
-        url: "https://www.mfaa.com.au/find-a-broker",
+        url: "https://findabroker.mfaa.com.au",
       },
     ],
   },
