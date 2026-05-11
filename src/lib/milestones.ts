@@ -30,6 +30,22 @@ export const milestones: Milestone[] = [
         label: "Revenue NSW: Transfer duty",
         url: "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty",
       },
+      {
+        label: "Revenue NSW: First Home Buyer Assistance Scheme",
+        url: "https://www.revenue.nsw.gov.au/grants-schemes/first-home-buyer",
+      },
+      {
+        label: "Housing Australia: First Home Guarantee",
+        url: "https://www.housingaustralia.gov.au/support-buy-home/first-home-guarantee",
+      },
+      {
+        label: "ASIC MoneySmart: Home loans",
+        url: "https://moneysmart.gov.au/home-loans",
+      },
+      {
+        label: "MFAA: Find a mortgage broker",
+        url: "https://www.mfaa.com.au/find-a-broker",
+      },
     ],
   },
   {
@@ -48,6 +64,18 @@ export const milestones: Milestone[] = [
       {
         label: "NSW Fair Trading: Buying and selling property",
         url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
+      },
+      {
+        label: "NSW Planning Portal",
+        url: "https://www.planningportal.nsw.gov.au/",
+      },
+      {
+        label: "Transport for NSW: Trip planner",
+        url: "https://transportnsw.info/",
+      },
+      {
+        label: "NSW Education: School finder",
+        url: "https://education.nsw.gov.au/schools/find-a-school",
       },
     ],
   },
@@ -68,6 +96,14 @@ export const milestones: Milestone[] = [
         label: "NSW Government: Buying a property",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-a-property",
       },
+      {
+        label: "NSW Fair Trading: Before you buy",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
+      },
+      {
+        label: "ASIC MoneySmart: Buying a home",
+        url: "https://moneysmart.gov.au/buying-a-home",
+      },
     ],
   },
   {
@@ -86,6 +122,14 @@ export const milestones: Milestone[] = [
       {
         label: "NSW Government: Buying at auction",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-property-at-auction",
+      },
+      {
+        label: "NSW Fair Trading: Buying property",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
+      },
+      {
+        label: "Revenue NSW: Transfer duty calculator",
+        url: "https://www.revenue.nsw.gov.au/help-centre/online-services/transfer-duty-calculator",
       },
     ],
   },
@@ -106,6 +150,18 @@ export const milestones: Milestone[] = [
         label: "NSW Government: Buying a property",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-a-property",
       },
+      {
+        label: "NSW Fair Trading: Strata schemes",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/strata-and-community-living",
+      },
+      {
+        label: "Law Society of NSW",
+        url: "https://www.lawsociety.com.au/",
+      },
+      {
+        label: "Australian Institute of Conveyancers NSW",
+        url: "https://www.aicnsw.com.au/",
+      },
     ],
   },
   {
@@ -125,6 +181,14 @@ export const milestones: Milestone[] = [
         label: "NSW Government: Buying a property",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-a-property",
       },
+      {
+        label: "NSW Fair Trading: The buying process",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
+      },
+      {
+        label: "Revenue NSW: Transfer duty",
+        url: "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty",
+      },
     ],
   },
   {
@@ -143,6 +207,10 @@ export const milestones: Milestone[] = [
       {
         label: "NSW Government: Buying a property",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-a-property",
+      },
+      {
+        label: "NSW Fair Trading: Cooling-off periods",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
       },
     ],
   },
@@ -167,6 +235,22 @@ export const milestones: Milestone[] = [
         label: "NSW Government: Help to Buy",
         url: "https://www.nsw.gov.au/housing-and-construction/help-to-buy",
       },
+      {
+        label: "Revenue NSW: First Home Buyer Assistance Scheme",
+        url: "https://www.revenue.nsw.gov.au/grants-schemes/first-home-buyer",
+      },
+      {
+        label: "Revenue NSW: First Home Owner Grant",
+        url: "https://www.revenue.nsw.gov.au/grants-schemes/first-home-owner",
+      },
+      {
+        label: "Housing Australia: First Home Guarantee",
+        url: "https://www.housingaustralia.gov.au/support-buy-home/first-home-guarantee",
+      },
+      {
+        label: "Housing Australia: Help to Buy",
+        url: "https://www.housingaustralia.gov.au/support-buy-home/help-buy",
+      },
     ],
   },
   {
@@ -186,6 +270,14 @@ export const milestones: Milestone[] = [
         label: "NSW Government: Buying a property",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-a-property",
       },
+      {
+        label: "NSW Fair Trading: Buying a property",
+        url: "https://www.fairtrading.nsw.gov.au/housing-and-property/buying-and-selling-property",
+      },
+      {
+        label: "Revenue NSW: Transfer duty",
+        url: "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty",
+      },
     ],
   },
   {
@@ -204,6 +296,14 @@ export const milestones: Milestone[] = [
       {
         label: "NSW Government: Buying and selling property hub",
         url: "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property",
+      },
+      {
+        label: "Service NSW: Update your address",
+        url: "https://www.service.nsw.gov.au/transaction/update-address",
+      },
+      {
+        label: "Energy Made Easy: Compare energy plans",
+        url: "https://www.energymadeeasy.gov.au/",
       },
     ],
   },
