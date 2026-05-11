@@ -131,9 +131,40 @@ export function JourneyLanding() {
 
   return (
     <main className="mx-auto w-full max-w-7xl overflow-x-hidden px-4 py-8 sm:px-6 md:py-10">
+      <header className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+        <div className="flex justify-center">
+          <Image
+            src="/home-hunters-logo.png"
+            alt="Home Hunters Australia"
+            width={150}
+            height={180}
+            priority
+            className="h-[100px] w-auto md:h-40"
+          />
+        </div>
+        <p className="mt-4 text-pretty text-xl font-bold text-ink md:text-2xl">
+          Your AI guide through the NSW first home buyer journey
+        </p>
+        <div className="mt-8 space-y-4">
+          <p className="text-pretty text-base text-grey md:text-lg">
+            First home buying can be confusing, and it&apos;s hard to know who to trust. That&apos;s why
+            we&apos;ve developed ten milestones using official NSW sources, so the information stays up
+            to date and relevant.
+          </p>
+          <p className="text-pretty text-base text-grey md:text-lg">
+            We&apos;d also like to introduce VERA — your trusted buyer&apos;s agent, here to answer anything
+            along the way.
+          </p>
+          <p className="text-pretty text-base text-grey md:text-lg">Good luck &amp; happy hunting!</p>
+        </div>
+        <p className="mt-8 text-sm text-grey/90 md:mt-10" aria-hidden="true">
+          Scroll to explore the milestones
+        </p>
+      </header>
+
       <div className="grid gap-8 md:grid-cols-[340px_minmax(0,1fr)] md:gap-10">
         <aside className="md:sticky md:top-20 md:self-start">
-          <div className="sticky top-3 z-10 rounded-2xl bg-cream/95 p-3 shadow-[0_8px_30px_rgba(124,58,237,0.08)] backdrop-blur md:static md:bg-transparent md:p-0 md:shadow-none">
+          <div className="sticky top-3 z-10 rounded-2xl bg-cream/95 p-3 shadow-[0_8px_30px_rgba(58,107,71,0.08)] backdrop-blur md:static md:bg-transparent md:p-0 md:shadow-none">
             <div className="flex items-center gap-3 md:block">
               <div className="relative size-14 overflow-hidden rounded-full ring-4 ring-white/80 md:size-72">
                 <Image
@@ -147,18 +178,18 @@ export function JourneyLanding() {
               </div>
               <div className="min-w-0">
                 <div
-                  className={`relative w-full max-w-full rounded-2xl bg-peach px-4 py-3 text-sm text-ink shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-opacity duration-200 md:-rotate-1 md:px-5 md:py-4 md:text-base ${
+                  className={`relative w-full max-w-full rounded-2xl bg-peach px-4 py-3 text-sm text-cream shadow-[0_8px_30px_rgba(58,107,71,0.08)] transition-opacity duration-200 md:-rotate-1 md:px-5 md:py-4 md:text-base ${
                     bubbleVisible ? "opacity-100" : "opacity-0"
                   }`}
                 >
                   <p className="break-words whitespace-normal">{bubbleText}</p>
                   <span className="absolute -left-2 top-4 hidden size-4 rotate-45 bg-peach md:block" />
                 </div>
-                <div className="mt-3 rounded-2xl border border-grey/20 bg-white/80 px-4 py-3 shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
+                <div className="mt-3 rounded-2xl border border-grey/20 bg-white/80 px-4 py-3 shadow-[0_8px_30px_rgba(58,107,71,0.08)]">
                   <p className="text-sm text-ink">{completedCount} of 10 milestones complete</p>
                   <div className="mt-2 h-2 w-full rounded-full bg-grey/30">
                     <div
-                      className="h-full rounded-full bg-purple transition-all duration-300"
+                      className="h-full rounded-full bg-brand-green transition-all duration-300"
                       style={{ width: `${progressPercent}%` }}
                       aria-hidden="true"
                     />
@@ -176,13 +207,13 @@ export function JourneyLanding() {
               <article
                 key={milestone.id}
                 id={`milestone-${milestone.id}`}
-                className={`rounded-2xl border px-5 pt-10 pb-6 shadow-[0_8px_30px_rgba(124,58,237,0.08)] transition-colors md:min-h-[80vh] md:px-8 md:pt-12 md:pb-16 ${
-                  isActive ? "border-purple/25 bg-pink/40" : "border-grey/20 bg-white/70"
+                className={`rounded-2xl border px-5 pt-10 pb-6 shadow-[0_8px_30px_rgba(58,107,71,0.08)] transition-colors md:min-h-[80vh] md:px-8 md:pt-12 md:pb-16 ${
+                  isActive ? "border-brand-green/25 bg-pink/40" : "border-grey/20 bg-white/70"
                 }`}
               >
                 <p
                   className={`text-4xl font-semibold tracking-tight md:text-5xl ${
-                    isActive ? "text-purple" : "text-grey/80"
+                    isActive ? "text-brand-green" : "text-grey/80"
                   }`}
                 >
                   {String(milestone.order).padStart(2, "0")}
@@ -199,7 +230,7 @@ export function JourneyLanding() {
                 <div className="mt-7">
                   <Link
                     href={`/milestones/${milestone.id}`}
-                    className="inline-flex items-center rounded-full bg-purple px-5 py-3 text-sm font-semibold text-white transition hover:bg-purple/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple/30 md:px-6"
+                    className="inline-flex items-center rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-green/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-green/30 md:px-6"
                   >
                     Open VERA&apos;s guide &rarr;
                   </Link>
@@ -208,7 +239,7 @@ export function JourneyLanding() {
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 96 44"
-                    className="h-8 w-20 text-purple/35"
+                    className="h-8 w-20 text-brand-green/35"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >

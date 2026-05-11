@@ -7,11 +7,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-plus-jakarta-sans);
-  --font-heading: var(--font-plus-jakarta-sans);
+  --font-sans: var(--font-merriweather);
+  --font-heading: var(--font-merriweather);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
-  --color-purple: var(--purple);
+  --color-brand-green: var(--brand-green);
   --color-peach: var(--peach);
   --color-pink: var(--pink);
   --color-grey: var(--grey);
@@ -56,9 +56,9 @@
 :root {
   --cream: #fdf6ec;
   --ink: #1f1b2e;
-  --purple: #7c3aed;
-  --peach: #ffa08c;
-  --pink: #ffe5e0;
+  --brand-green: #3a6b47;
+  --peach: #5c4033;
+  --pink: #e6cfa8;
   --grey: #8b8499;
   --background: var(--cream);
   --foreground: var(--ink);
@@ -133,7 +133,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-cream text-ink;
+    @apply bg-cream text-ink leading-relaxed;
   }
   html {
     @apply font-sans;

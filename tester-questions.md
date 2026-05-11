@@ -1,6 +1,6 @@
 # VERA tester question pack — NSW first home buyers
 
-Use this pack during a chat session on any milestone page. Try a handful of questions from each milestone (you do not need to do all 50). As you go, notice whether VERA gives useful, milestone-relevant guidance; includes **real, clickable links** from the official list when the topic matches; keeps a **calm, plain-English** tone; stays **NSW / first home buyer** focused where it matters; and **declines** when a question asks for personalised financial, legal, or tax advice — redirecting to licensed professionals or official sources instead.
+Use this pack during a chat session on any milestone page. Try a handful of questions from each milestone (you do not need to do all 50). As you go, notice whether VERA gives useful, milestone-relevant guidance; includes **real, clickable links** from the official list when the topic matches; keeps a **calm, plain-English** tone; stays **NSW / first home buyer** focused where it matters; and **declines** when a question asks for personalised financial, legal, or tax advice — redirecting to licensed professionals or official sources instead. If you click a link in VERA's response and it 404s, please flag the broken link in your notes — we want to know which deep links have moved.
 
 ---
 

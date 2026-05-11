@@ -7,7 +7,7 @@ const config: Config = {
       colors: {
         cream: "var(--cream)",
         ink: "var(--ink)",
-        purple: "var(--purple)",
+        "brand-green": "var(--brand-green)",
         peach: "var(--peach)",
         pink: "var(--pink)",
         grey: "var(--grey)",

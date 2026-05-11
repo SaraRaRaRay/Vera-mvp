@@ -42,7 +42,7 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
   }
 
   return (
-    <section className="mt-10 rounded-2xl border border-grey/20 bg-white/75 shadow-[0_8px_30px_rgba(124,58,237,0.08)]">
+    <section className="mt-10 rounded-2xl border border-grey/20 bg-white/75 shadow-[0_8px_30px_rgba(58,107,71,0.08)]">
       <div className="flex items-center gap-3 border-b border-grey/20 px-4 py-3 sm:px-5">
         <div className="relative size-12 overflow-hidden rounded-full ring-2 ring-white/80">
           <Image src="/vera-portrait.png" alt="VERA avatar" fill className="object-cover" sizes="48px" />
@@ -71,25 +71,25 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
                 ) : (
                   <div className="size-8" aria-hidden="true" />
                 )}
-                <div className="max-w-[85%] rounded-3xl bg-peach px-4 py-2 text-sm leading-relaxed text-ink">
+                <div className="vera-bubble max-w-[85%] rounded-3xl bg-peach px-4 py-2 text-sm leading-relaxed text-cream">
                   <ReactMarkdown
                     components={{
-                      strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-                      em: ({ children }) => <em className="italic">{children}</em>,
-                      ul: ({ children }) => <ul className="mb-2 list-disc space-y-1 pl-5">{children}</ul>,
-                      ol: ({ children }) => <ol className="mb-2 list-decimal space-y-1 pl-5">{children}</ol>,
-                      li: ({ children }) => <li className="mb-1">{children}</li>,
+                      strong: ({ children }) => <strong className="font-semibold text-cream">{children}</strong>,
+                      em: ({ children }) => <em className="italic text-cream">{children}</em>,
+                      ul: ({ children }) => <ul className="mb-2 list-disc space-y-1 pl-5 text-cream">{children}</ul>,
+                      ol: ({ children }) => <ol className="mb-2 list-decimal space-y-1 pl-5 text-cream">{children}</ol>,
+                      li: ({ children }) => <li className="mb-1 text-cream">{children}</li>,
                       a: ({ href, children }) => (
                         <a
                           href={href}
-                          className="text-purple underline"
+                          className="font-medium text-[#88b19a] underline decoration-[#88b19a]/80 underline-offset-2 transition hover:text-cream hover:decoration-cream"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           {children}
                         </a>
                       ),
-                      p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                      p: ({ children }) => <p className="mb-2 text-cream last:mb-0">{children}</p>,
                     }}
                   >
                     {message.content}
@@ -97,7 +97,7 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
                 </div>
               </div>
             ) : (
-              <p className="max-w-[85%] rounded-full bg-pink px-4 py-2 text-sm leading-relaxed text-ink">
+              <p className="max-w-[85%] rounded-full border border-grey/35 bg-cream px-4 py-2 text-sm leading-relaxed text-ink shadow-sm">
                 {message.content}
               </p>
             )}
@@ -116,12 +116,12 @@ export function MilestoneChat({ slug }: MilestoneChatProps) {
           onChange={(event) => setInputValue(event.target.value)}
           placeholder="Ask a question about this step..."
           disabled={loading}
-          className="h-11 rounded-full border-grey/35 bg-cream px-4 text-ink focus-visible:ring-purple/30"
+          className="h-11 rounded-full border-grey/35 bg-cream px-4 text-ink focus-visible:ring-brand-green/30"
         />
         <Button
           type="submit"
           disabled={loading || inputValue.trim().length === 0}
-          className="h-11 rounded-full bg-purple px-5 text-white hover:bg-purple/90 focus-visible:ring-purple/30"
+          className="h-11 rounded-full bg-brand-green px-5 text-white hover:bg-brand-green/90 focus-visible:ring-brand-green/30"
         >
           Send
         </Button>
